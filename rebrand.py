@@ -3,20 +3,20 @@ import sys
 
 def main():
     try:
-        with open('oeminfo.img', 'rb') as f:
+        with open(sys.argv[1], 'rb') as f:
             b = bytearray(f.read())
-        m = bytearray(sys.argv[1])
+        m = bytearray(sys.argv[2])
         while len(m) < 127:
             m += '\x00'
         b[369152:369279] = m
-        b[393236] = len(sys.argv[1])
-        m = bytearray(sys.argv[1])
+        b[393236] = len(sys.argv[2])
+        m = bytearray(sys.argv[2])
         while len(m) < 127:
             m += '\xff'
 
         b[393728:393855] = m
-        b[69652] = len(sys.argv[2])
-        m = bytearray(sys.argv[2])
+        b[69652] = len(sys.argv[3])
+        m = bytearray(sys.argv[3])
         while len(m) < 127:
             m += '\xff'
 
@@ -26,7 +26,7 @@ def main():
             for x in range(st, en + 1):
                 b[x] = 255
 
-        with open('output.img', 'wb') as f:
+        with open('out_'+sys.argv[1], 'wb') as f:
             f.write(b)
         return True
     except:
