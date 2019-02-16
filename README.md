@@ -4,8 +4,8 @@ python rebrand script for Huawei.
 
 Place your stock oeminfo.img in the same folder as rebrand.py.
 
-Run script using: python rebrand.py MODEL CUST
+Run script using: python rebrand.py OEMINFO_FILENAME MODEL CUST
 
-Example: python rebrand.py ALP-L29 hw/eu
+Example: python rebrand.py oeminfo_stock.img ALP-L29 hw/eu
 
-This will create output.img with the model and cust you supply.
+This will create out_oeminfo_stock.img with the model and cust you supply.
